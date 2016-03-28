@@ -339,8 +339,8 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr ng-repeat="data in qualificationsCopy">
-                                            <td><h5 class="normalfont normaltext">{{data.degree}}</h5></td>
+                                        <tr ng-repeat="data in qualifications">
+                                            <td><h5 class="normalfont normaltext">{{data.name}}</h5></td>
                                             <td><h5 class="normalfont normaltext">{{data.percentage}}%</h5></td>
 
                                             <td style="width:5px" ng-init="buttonClicked='deleteQualification';">
@@ -396,7 +396,7 @@
                                         <tr ng-repeat="data in certifications">
 
                                             <td><h5 class="normalfont normaltext">{{data.year}}</h5></td>
-                                            <td><h5 class="normalfont normaltext">{{data.certification}}</h5></td>
+                                            <td><h5 class="normalfont normaltext">{{data.certification_name}}</h5></td>
 
                                             <td style="width:5px" ng-init="buttonClicked='deleteCertification';">
                                                 <button class="form-control btn-danger" type="button" data-toggle="modal" data-target="#DeleteCertificationModal" ng-click="getDeleteId_Certification(buttonClicked)"> <span class="glyphicon glyphicon-trash"></span></button>

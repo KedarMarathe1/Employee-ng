@@ -14,22 +14,15 @@ $scope.baseUrl='http://localhost:1337'
 
         //--------------------- To get list of qualifications--------------------------------------//
         $http.get($scope.baseUrl+'/employee/getQualification/').success(function (result) {     
-                    console.log(result);
                     $scope.qualification_list=result;
                 })
                 
         //----------------------To get list of certifications---------------------------------------//
         $http.get($scope.baseUrl+'/employee/getCertification/').success(function (result) {         
-                    console.log("date");
-                    console.log(result);
                     $scope.certification_list=result;
                 })
     }
-
-
     init();
-
-
     $scope.$on('selection-changed', function (e, node) {
                 //node - selected node in tree
         $scope.selectedNode = node;
@@ -42,6 +35,7 @@ $scope.baseUrl='http://localhost:1337'
             $scope.employeeId = $scope.selectedNode.id;
             $scope.emp = $scope.employee.personal[0];
             $scope.qualifications=$scope.employee.qualification;
+            console.log($scope.qualifications);
             $scope.salary=$scope.employee.company;
             $scope.certifications=$scope.employee.certification;
             })
@@ -51,7 +45,6 @@ $scope.baseUrl='http://localhost:1337'
             $location.path('/dpt');
             $http.get("http://localhost:1337/employee/departmentdata/"+ $scope.selectedNode.id).success(function (result) {
                 $scope.department = result
-                console.log($scope.department)
             })
             .error(function (result) {
                 conole.log(result);
