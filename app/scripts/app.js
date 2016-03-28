@@ -18,13 +18,13 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'TreeWidget'
-   
+    'TreeWidget',
+    'ui.bootstrap.contextMenu'
   ])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
+        templateUrl: 'views/default.html',
        // controller: 'MainCtrl',
         //controllerAs: 'main'
       })
@@ -32,6 +32,20 @@ angular
         templateUrl: 'views/about.html',
       //  controller: 'AboutCtrl',
        // controllerAs: 'about'
+      })
+      .when('/emp', {
+        templateUrl: 'views/EmployeeDisplay.html'
+      })
+
+     .when('/dpt', {
+         templateUrl: 'views/DepartmentDisplay.html'
+      })
+
+     .when('/root', {
+         templateUrl: 'views/CompanyDisplay.html'
+      })
+     .when('/edit', {
+         templateUrl: 'views/EditDisplay.html'
       })
       .otherwise({
         redirectTo: '/'

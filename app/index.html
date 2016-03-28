@@ -51,7 +51,7 @@
       </div>
     </div> 	
 	<br>
-    <div class="container" style="width:100%">
+    <div class="container" style="width:100%" ng-controller="TreeController" >
 	        <div class="col-md-3" >
 				<div class="panel panel-primary">
 						<div class="panel-heading navbar-inverse">
@@ -67,7 +67,7 @@
                         </div>
                        
 						
-						<div ng-controller="TreeController" > 
+						<div> 
 							  <div class="panel-body" style="height:600px;overflow:scroll">
 			                    <tree nodes='treeNodes' options="options1"></tree>
 			                    <span></span>
@@ -127,21 +127,10 @@
 	  <!-- build:js({.tmp,app}) scripts/scripts.js -->
 	  	<script src="scripts/app.js"></script>	
 		<script src="dist/angular-tree-widget.js"></script>
-			<script src="scripts/controllers/treeview.js"></script>
-	
-		
-   	
-   		<scrit src="scripts/controllers/contextMenu.js">
+	    <script src="scripts/controllers/treeview.js"></script>
+	    <script src="scripts/controllers/contextMenu.js"></script>
+      <script src="scripts/controllers/employeeEdit.js"></script>
 
-    <!--    <script src="scripts/controllers/main.js"></script>
-		<script src="scripts/controllers/EmployeeDetails.js"></script>
-        <script src="scripts/controllers/about.js"></script>
-		<script src="scripts/controllers/TreeViewController.js"></script>
-		<script src="TreeGrid/src/treeGridTest.js"></script>
-		<script src="scripts/controllers/EditController.js"></script>
-		<script src="scripts/controllers/AddController.js"></script>
-	-->
-		
 		
 		
 		

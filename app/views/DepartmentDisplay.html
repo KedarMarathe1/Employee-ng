@@ -1,0 +1,29 @@
+
+        <div>
+            <h2>Department Details</h2><br>
+            <div ng-repeat="dpt in department" class="panel panel-default">
+                <div style="" class="panel-heading"><h4>{{dpt.deptName}}<small>&nbsp&nbsp&nbsp&nbsp&nbsp{{dpt.count}} employee</small></h4></div>
+                <div class="panel-body"><h5 class="normalfont normaltext" style="color:black;">{{dpt.description}}qqqqqqq</h5></div>
+            </div>
+
+            <div class="table-responsive" style="max-height:45vh">
+                <table class="table table-hover" style="color:black;">
+                    <thead class="panel-heading">
+                        <tr class="active">
+                            <th><h5>First Name</h5></th>
+                            <th><h5>Last Name</h5></th>
+                            <th><h5>Email Id</h5></th>
+                        </tr>
+                    </thead>
+                    {{}}
+                    <tbody ng-repeat="dpt in department">
+                        <tr ng-repeat="emp in dpt.employee">
+                            <td><h5 class="normalfont normaltext">{{emp.fname}}</h5></td>
+                            <td><h5 class="normalfont normaltext">{{emp.lname}}</h5></td>
+                            <td><h5 class="normalfont normaltext">{{emp.email_id}}</h5></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
