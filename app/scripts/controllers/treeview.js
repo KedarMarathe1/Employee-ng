@@ -37,6 +37,8 @@ $scope.baseUrl='http://localhost:1337'
             $scope.qualifications=$scope.employee.qualification;
             console.log($scope.qualifications);
             $scope.salary=$scope.employee.company;
+            console.log($scope.salary);
+
             $scope.certifications=$scope.employee.certification;
             })
         }
@@ -69,6 +71,10 @@ $scope.baseUrl='http://localhost:1337'
         $location.path("/edit");
     }
 
+  $scope.addEmployee = function() {
+
+        $location.path("/addEmployee");
+    }
 
 
 }]);

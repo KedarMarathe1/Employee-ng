@@ -130,6 +130,8 @@ $scope.deletedQualifications = [];
 						$http.post("http://localhost:1337/employee/insertCertification",data)
 					}
 				}
+
+				$location.path("/emp");
 			}
 
 }]);
