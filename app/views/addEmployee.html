@@ -1,0 +1,434 @@
+<style type="text/css">
+#personalPanel:after
+		{
+			font-family:'Glyphicons Halflings';
+		    content:"\e114";
+			float: right;
+			color: grey;
+		}
+		#personalPanel.collapsed:after
+		{
+			content:"\e080";
+		}
+		
+		
+		#qualificationPanel:after,#companyPanel:after
+		{
+			font-family:'Glyphicons Halflings';
+			content:"\e114";
+			float: right;
+			color: grey;
+		}
+		#qualificationPanel.collapsed:after,#companyPanel.collapsed:after
+		{
+			content:"\e080";
+		}
+		.navTab
+		{
+			height:30%;
+		}
+		
+		.normalfont{
+		font-weight:normal;
+		}
+		
+		.normaltext{
+		text-transform:none;
+		}
+		
+		
+		.top-space{
+			margin-top: 1.5%;
+		}
+
+		
+</style>
+
+<!--
+<div>
+<span id="text1">{{item.text}}</span>
+</div> -->
+<div class="container" style="width:100%" ng-controller="AddCtrl">
+
+
+
+	
+	<h2 style="padding:2%">New Employee</h2>
+	  <ul class="nav nav-tabs">
+		<li class="active"><a data-toggle="tab" data-target="#personal"><h5>Personal</h5></a></li>
+		<li ><a data-toggle="tab" data-target="#company"><h5>Company</h5></a></li>
+		<li><a data-toggle="tab" data-target="#qualifications"><h5>Qualifications & Certifications</h5></a></li>
+	  </ul>
+	<form role="form" name="EditEmployee">
+	<div class="tab-content panel-body">
+		<div id="personal" class="tab-pane fade in active" >
+			<div class="panel panel-primary">
+			
+							<div class="panel-heading navbar-inverse panel-body " >
+								<h4  class="col-md-offset-2">
+								<div class="col-md-4">
+									<input class="form-control" ng-model='user.fname' placeholder="First Name" type="text">
+								</div>
+								
+								<div class="col-md-4">
+									<input class="form-control" ng-model='user.lname' placeholder="Last Name" type="text">
+								</div>
+								</h4>
+							</div>
+			
+				<div class="col-md-offset-2 panel-body">
+				 
+					
+					<div>
+						<h5 class="normaltext">
+							<div class="col-md-4" style="padding-top: 1.5%">
+								<span><strong>Mobile Number</strong></span>	
+							</div>
+						</h5>
+
+							<div class="col-md-5 top-space">
+								<input class="form-control" ng-model='user.mobile_no' placeholder="Mobile Number" type="number" required>
+							</div>	
+						
+					</div>
+
+					<div >
+						<h5 class="normaltext">
+							<div class="col-md-4" style="padding-top: 1.5%">
+								<span><strong>Email</strong></span>	
+							</div>
+						</h5>
+
+							<div class="col-md-5 top-space" >
+								<input class="form-control" ng-model='user.email_id' placeholder="Email" type="text" required>
+							</div>	
+						
+					</div>
+
+						<div>
+							<h5 class="normaltext">
+								<div class="col-md-4" style="padding-top: 1.5%">
+									<span><strong>Gender</strong></span>	
+								</div>
+							</h5>
+								<div class="col-md-5 top-space">
+									<div class="form-group">
+									  <select class="form-control" ng-model='user.gender'>
+									  <option style="display:none" value="">select Gender</option>
+									    <option value="male">Male</option>
+									    <option value="female">female</option>
+									  </select>
+									</div>
+								</div>	
+						</div>
+
+					<div>
+						<h5 class="normaltext">
+							<div class="col-md-4" style="padding-top: 1.5%">
+								<span><strong>DOB</strong></span>	
+							</div>
+						</h5>
+
+							<div class="col-md-5 top-space">
+								<input class="form-control" ng-model='user.dob' placeholder='Birth Date' type="text" required>
+							</div>	
+					</div>
+
+					<div>
+						<h5 class="normaltext">
+							<div class="col-md-4" style="padding-top: 1.5%">
+								<span><strong>Address</strong></span>	
+							</div>
+						</h5>
+							<div class="col-md-5 top-space">
+								<textarea class="form-control" rows="5" id="comment" placeholder="Address" ng-model='user.address' required></textarea>
+							</div>	
+					</div>
+
+
+					<div>
+						<h5 class="normaltext">
+							<div class="col-md-4" style="padding-top: 1.5%">
+								<span><strong>City</strong></span>	
+							</div>
+						</h5>
+							<div class="col-md-5 top-space">
+								<input class="form-control" ng-model='user.city' placeholder='City' type="text" required>
+							</div>	
+					</div>
+
+
+					<div>
+						<h5 class="normaltext">
+							<div class="col-md-4" style="padding-top: 1.5%">
+								<span><strong>State</strong></span>	
+							</div>
+						</h5>
+							<div class="col-md-5 top-space">
+								<input class="form-control" ng-model='user.state' placeholder='State' type="text" required>
+							</div>	
+					</div>
+
+					<div >
+						<h5 class="normaltext">
+							<div class="col-md-4" style="padding-top: 1.5%">
+								<span><strong>Country</strong></span>	
+							</div>
+						</h5>
+							<div class="col-md-5 top-space">
+								<input class="form-control" ng-model='user.country' placeholder='State' type="text" required>
+							</div>	
+					</div>
+
+			
+										
+				</div>
+			</div>
+		</div>
+  
+		<div id="company" class="tab-pane fade">
+		 <div class="panel panel-primary" style="width:100%">
+								<div class="panel-heading navbar-inverse">
+									<h4>
+										Company Profile
+									</h4>
+								</div>
+			<div class="panel-body ">
+				
+												
+					<div class="col-md-6" >
+						<h5 class="normaltext">
+							<div class="col-md-4" style="padding: 2.5%">
+								<span><strong>DOJ</strong></span>	
+							</div>
+						</h5>
+							<div class="col-md-5">
+								<input class="form-control" ng-model='user.doj' placeholder='DOJ' type="text" required>
+							</div>	
+					</div>
+
+					<div class="col-md-6">
+						<h5 class="normaltext">
+							<div class="col-md-4" style="padding: 2.5%">
+								<span><strong>PF_No</strong></span>	
+							</div>
+						</h5>
+							<div class="col-md-5">
+								<input class="form-control" ng-model='user.pf_no' placeholder='PF_no' type="text" required>
+							</div>	
+					</div>
+
+								
+			  <div class=" panel-body"  style="clear:both;margin-top: 3%;">
+			 
+			  <div class="panel panel-primary panel-body" style="overflow: auto;">
+				  <table class="table" style="color:black">
+				  <tr> 
+				  	<td>
+				  		<h5 style="color:black;width: 20vh">
+				  		<input class="form-control" ng-model="user.salary_year" id='salary_year' placeholder='Year' type="text">
+				  		</h5>
+				  	</td>
+
+					<td>
+						<h5 style="color:black;width: 20vh">
+							<input class="form-control" ng-model="user.salary" id='salary' placeholder='Salary' type="text">
+						</h5>
+					</td>
+					<td>
+						<h5 style="color:black;width: 20vh">
+						<input class="form-control" ng-model="user.bonus" id='bonus' placeholder='Bonus' type="text">
+						</h5>
+					</td>
+					<td>
+						<h5 style="color:black;width: 20vh">
+							<input class="form-control" ng-model="user.leaves" id='leaves' placeholder='Leaves' type="text">
+						</h5>
+					</td>
+					<td>
+						<h5 style="color:black;width: 20vh">
+							<input class="form-control" ng-model="user.post" id='post' placeholder='Post' type="text">
+						</h5>
+					</td>
+				  </tr>
+				  </table>
+				   <button class="form-control btn-success" type="button" id="mybtn" ng-click="addRow_salary(user)">ADD</button>
+				</div>
+				
+				<div style="max-height:50vh;overflow: auto;">
+				<table class="table" style="color:black;">
+						<thead >
+						  <tr class="active">
+							<th><h5 style="color:black;width: 15vh">Year</h5></th>
+							<th><h5 style="color:black;width: 15vh">Salary</h5></th>
+							<th><h5 style="color:black;width: 15vh">Bonus</h5></th>
+							<th><h5 style="color:black;width: 15vh">Leaves</h5></th>
+							<th><h5 style="color:black;width: 20vh">Post</h5></th>
+						
+							
+							
+						  </tr>
+						</thead>
+						<tbody>
+						  <tr ng-repeat="data in salary_add">
+							<td><h5  class="normalfont normaltext">{{data.year}}</h5></td>
+							<td><h5  class="normalfont normaltext">{{data.salary}}</h5></td>
+							<td><h5  class="normalfont normaltext">{{data.bonus}}</h5></td>
+							<td><h5  class="normalfont normaltext">{{data.leaves}}</h5></td>
+							<td><h5  class="normalfont normaltext">{{data.post}}</h5></td>
+						  </tr>
+						 
+						</tbody>
+				 </table>
+				 </div>
+				</div>
+
+				<br>
+
+			</div>
+			</div>
+		</div>
+		
+    <div id="qualifications" class="tab-pane fade">
+			 <div class="col-md-5 ">
+				 <div class="panel panel-primary" style="width:100%">
+							
+								<div class="panel-heading navbar-inverse">
+									<h4>
+										Qualifications
+									</h4>
+								</div>
+
+						 <div class="panel-body">
+
+						
+						<div>
+
+						
+								<div class="form-group">
+								  <select id="select_qualificaion" class="form-control" ng-model="user.qualification_selected" ng-options="qualification.name for qualification in qualification_list track by qualification.code">
+								  <option style="display:none" value="">select a Qualification</option>
+								  </select>
+								</div>
+						
+           			
+
+						  <!--<input class="form-control" style="margin:1%" id="qualification" ng-model="user.qualification" placeholder='Qualification' type="text">-->
+						  <input class="form-control" style="margin:1%" id="percentage" ng-model="user.percentage" placeholder='Percentage' type="number" >
+						  <button class="form-control btn-success" type="button" id="mybtn" style="margin:1%;margin-bottom:5%" ng-click="addQualification(user)">ADD</button>
+						</div>
+
+							<div style="overflow: auto; max-height:50vh;">
+							<table class="table" style="color:black;">
+									<thead >
+									  <tr class="active">
+										<th class="col-md-8"><h5 style="color:black;width: 20vh">Degree</h5></th>
+										<th><h5 style="color:black;width: 10vh">Percentage</h5></th>
+										<th></th>
+									  </tr>
+									</thead>
+									<tbody>
+									  <tr ng-repeat="data in qualifications_add">
+										<td><h5  class="normalfont normaltext">{{data.name}}</h5></td>
+										<td><h5  class="normalfont normaltext">{{data.percentage}}%</h5></td>
+										
+									  </tr>
+									
+									</tbody>
+							 </table>
+							 </div>
+						</div>
+				</div>
+			 
+			 </div>
+			 <div class="col-md-7 ">
+				
+				<div class="panel panel-primary" style="width:100%">
+							
+							<div class="panel-heading navbar-inverse">
+								<h4>
+									Certifications 
+								</h4>
+							</div>
+
+						
+
+						<div class="panel-body" >
+
+						<div>
+						  <div class="form-group">
+								  <select id="select_certification" class="form-control" ng-model="user.certification_selected" ng-options="certification.certification_name for certification in certification_list track by certification.certification_code">
+								  <option style="display:none" value="">select a Certification</option>
+								  </select>
+								</div>
+						  <input class="form-control" style="margin:1%" id="year" ng-model="user.year" placeholder='Year' type="text">
+						  
+						  <button class="form-control btn-success" type="button" id="mybtn" style="margin:1%;margin-bottom:5%" ng-click="addCertification(user)">ADD</button>
+						</div>
+
+
+						<div style="overflow: auto;max-height:50vh;" >
+							<table class="table " style="color:black;">
+									<thead >
+									  <tr class="active">
+										<th  class="col-md-3"><h5 style="width:15vh">Year</h5></th>
+										<th><h5 style="width:20vh">Certification</h5></th>
+										<th></th>
+										
+										
+									  </tr>
+									</thead>
+									<tbody>
+									  <tr ng-repeat="data in certifications_add">
+
+										<td><h5  class="normalfont normaltext">{{data.year}}</h5></td>
+										<td><h5  class="normalfont normaltext">{{data.certification_name}}</h5></td>
+										
+									  </tr>
+									 
+									</tbody>
+							 </table>
+							 </div>
+						</div>
+					
+			 
+				</div>
+			
+			</div>
+		
+
+ 				 <!-- Modal -->
+				  <div class="modal fade" id="DeleteCertificationModal" role="dialog">
+				    <div class="modal-dialog modal-lg">
+				      <div class="modal-content">
+				        <div class="modal-header">
+				          <button type="button" class="close" data-dismiss="modal">&times;</button>
+				          <h4 class="modal-title">Warning</h4>
+				        </div>
+				        <div class="modal-body">
+				          <p>Are you sure you want to delete?</p>
+				        </div>
+				        <div class="modal-footer">
+
+							       	
+
+							       	
+							       	<button ng-show=" buttonClicked =='deleteCertification'" type="button" class="btn btn-danger" ng-click="deleteCertification();" data-dismiss="modal">Delete Certification</button> 
+
+							       	<button ng-show=" buttonClicked =='deleteQualification'" type="button" class="btn btn-danger" ng-click="deleteQualification();" data-dismiss="modal">Delete Qualification</button>
+							        
+							        <button type="button" class="btn btn-default" data-dismiss="modal" >Close</button>
+							        
+						        
+				        </div>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+    
+	</div>
+			<div class="col-sm-3 col-sm-offset-4 panel-body">
+				 <button class="btn btn-success btn-block" style="font-size:0.8em" ng-disabled="EditEmployee.$invalid" ng-click="myfunc()">Save</button>
+			</div>
+		</form>
+</div>

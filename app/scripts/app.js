@@ -47,7 +47,13 @@ angular
      .when('/edit', {
          templateUrl: 'views/EditDisplay.html'
       })
+    .when('/addEmployee', {
+         templateUrl: 'views/addEmployee.html'
+      })
+     
       .otherwise({
         redirectTo: '/'
       });
+
+
   });

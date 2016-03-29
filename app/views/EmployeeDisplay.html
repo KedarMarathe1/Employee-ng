@@ -33,6 +33,7 @@
     .normaltext {
         text-transform: none;
     }
+  
 </style>
 
 <!--
@@ -57,9 +58,41 @@
                     </h4>
                 </div>
 
-                <div class="panel-body col-md-offset-2">
-                    <ul class="list-group col-md-9">
+                <div class="panel-body">
+                    
+                    
+                        <div class="panel-body">
+                            <dl class="dl-horizontal col-md-5 panel-body">
+                              <dt><h5>Mobile Number</h5></dt>
+                              <dd><h5 class="normalfont">{{emp.mobile_no}}</h5></dd>
+                              <dt><h5>Email</h5></dt>
+                              <dd><h5 class="normalfont"> {{emp.email_id}} </h5></dd>
+                              <dt><h5>Gender</h5></dt>
+                              <dd><h5 class="normalfont">{{emp.gender}}</h5></dd>
+                              <dt><h5>DOB</h5></dt>
+                              <dd><h5 class="normalfont">{{emp.dob}} </h5></dd>
+                              <dt><h5>Address</h5></dt>
+                              <dd><h5 class="normalfont">{{emp.address}}</h5></dd>
+                              <dt><h5>City</h5></dt>
+                              <dd><h5 class="normalfont">{{emp.city}}</h5></dd>
+                              <dt><h5>State</h5></dt>
+                              <dd><h5 class="normalfont">{{emp.state }}</h5> </dd>
+                              <dt><h5>Country</h5></dt>
+                              <dd><h5 class="normalfont">{{emp.country}} </h5></dd>
+                            </dl>
+                       
+                    </div>
+                           <dl class="dl-horizontal col-md-6 panel-body">
+                        <div class="panel-body">
+                          <dt><h5>DOJ</h5></dt>
+                          <dd><h5 class="normalfont">{{emp.mobile_no}}</h5></dd>
+                          <dt><h5>PF number</h5></dt>
+                          <dd><h5 class="normalfont"> {{emp.email_id}} </h5></dd>
+                          
+                        </div>
+                        </dl>
 
+                       <!-- <ul class="list-group col-md-9">
                         <h5 class="normaltext"><li class="list-group-item text-right"><span class="pull-left"><strong class="">Mobile Number</strong></span> <span class="normalfont">   {{emp.mobile_no}}	   </span> </li></h5>
                         <h5 class="normaltext"><li class="list-group-item text-right"><span class="pull-left"><strong class="">Email</strong></span>    <span class="normalfont">        {{emp.email_id}}        </span></li></h5>
                         <h5 class="normaltext"><li class="list-group-item text-right"><span class="pull-left"><strong class="">Gender</strong></span>   <span class="normalfont">        {{emp.gender}}               </span></li></h5>
@@ -70,9 +103,10 @@
                         <h5 class="normaltext"><li class="list-group-item text-right"><span class="pull-left"><strong class="">Country</strong></span>  <span class="normalfont">        {{emp.country}}          </span></li></h5>
 
 
-                    </ul>
+                    </ul> -->
 
                 </div>
+
             </div>
         </div>
 
@@ -110,11 +144,12 @@
                                     <td><h5 class="normalfont normaltext">{{data.salary}}</h5></td>
                                     <td><h5 class="normalfont normaltext">{{data.bonus}}</h5></td>
                                     <td><h5 class="normalfont normaltext">{{data.leaves}}</h5></td>
-                                    <td><h5 class="normalfont normaltext">{{data.post}}</h5></td>
+                                    <td><h5 class="normalfont normaltext">{{data.role}}</h5></td>
                                 </tr>
 
                             </tbody>
                         </table>
+
                     </div>
                     <br>
 

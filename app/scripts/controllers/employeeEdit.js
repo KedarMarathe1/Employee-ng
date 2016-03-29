@@ -141,6 +141,8 @@ $scope.deletedQualifications = [];
 					}
 												
 				}
+				$location.path("/emp");
+
 
 			}
 
