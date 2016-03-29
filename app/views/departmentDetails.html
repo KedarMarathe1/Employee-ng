@@ -1,0 +1,63 @@
+<style type="text/css">
+#personalPanel:after
+		{
+			font-family:'Glyphicons Halflings';
+		    content:"\e114";
+			float: right;
+			color: grey;
+		}
+		#personalPanel.collapsed:after
+		{
+			content:"\e080";
+		}
+		
+		
+		#qualificationPanel:after,#companyPanel:after
+		{
+			font-family:'Glyphicons Halflings';
+			content:"\e114";
+			float: right;
+			color: grey;
+		}
+		#qualificationPanel.collapsed:after,#companyPanel.collapsed:after
+		{
+			content:"\e080";
+		}
+		.navTab
+		{
+			height:30%;
+		}
+			
+</style>
+
+<div class="panel-body" >
+	<div class="panel panel-default">
+	<div class="panel-body" >
+			<h2>Department Details</h2><br>
+			<div ng-repeat="dpt in department" class="panel panel-primary">
+				<div style="" class="panel-heading"><h4>{{dpt.department}}<small>&nbsp&nbsp&nbsp&nbsp&nbsp{{dpt.count}} employees</small></h4></div>
+				<div class="panel-body"><h5 class="normalfont normaltext" style="color:black;">{{dpt.description}}<h5></div>
+			</div>
+		
+		<div class="table-responsive" style="max-height:45vh">
+			<table class="table table-hover" style="color:black;">
+					<thead >
+					  <tr class="active">
+						<th><h5>First Name<h5></th>
+						<th><h5 >Last Name<h5></th>
+						<th><h5 >Email Id<h5></th>
+					  </tr>
+					</thead>
+					<tbody ng-repeat="dpt in department">
+					  <tr ng-repeat="emp in dpt.employee">
+						<td><h5 class="normalfont normaltext">{{emp.fname | capitalize}}</h5></td>
+						<td><h5  class="normalfont normaltext">{{emp.lname | capitalize}}</h5></td>
+						<td><h5 class="normalfont normaltext">{{emp.email_id}}</h5></td>
+					  </tr>
+					 
+					</tbody>
+			 </table>
+		</div>
+	</div>
+	</div>
+</div>
