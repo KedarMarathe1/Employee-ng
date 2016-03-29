@@ -6,7 +6,7 @@
 
 (function (angular) {
     'use strict';
-    angular.module('TreeWidget', ['ngAnimate', 'RecursionHelper'])
+    angular.module('TreeWidget', ['ngAnimate', 'RecursionHelper','CustomFilters'])
         .directive('tree', function () {
             return {
                 restrict: "E",
@@ -16,7 +16,7 @@
                     return {
                         pre: function (scope) {
                             scope.nodelist = [];
-                            scope.options = scope.options || (scope.options = { showIcon: false, expandOnClick: false, multipleSelect: false }); // To addd features
+                            scope.options = scope.options || (scope.options = { showIcon: true, expandOnClick: false, multipleSelect: false }); // To addd features
                             scope.count = 0;
                             function generateNodeList(nodes, parent) {
                                 if (nodes != undefined) {
@@ -68,7 +68,7 @@
                                 + '<treenode ng-if="node.children" nodes=\'node.children\' tree="tree" options="options" ng-show="node.expanded" id="{{node.nodeId}}"></treenode>'
                             + '</li>'
                         + '</ul>',
-                /*<input type="checkbox" name="vehivalue={{node.name}}>*/
+              
                 controller: ['$scope', '$rootScope', function ($scope, $rootScope) {
 
                     $scope.menuOptions = [

@@ -19,7 +19,8 @@ angular
     'ngSanitize',
     'ngTouch',
     'TreeWidget',
-    'ui.bootstrap.contextMenu'
+    'ui.bootstrap.contextMenu',
+    'CustomFilters'
   ])
   .config(function ($routeProvider) {
     $routeProvider

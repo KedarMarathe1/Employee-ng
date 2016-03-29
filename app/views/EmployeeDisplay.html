@@ -39,8 +39,8 @@
 <div>
 <span id="text1">{{item.text}}</span>
 </div> -->
-<div>
-    <h2>Employee Details</h2><br>
+
+    <h2>{{emp.fname }} {{emp.lname}}</h2><br>
 
     <ul class="nav nav-tabs">
         <li class="active"><a data-toggle="tab" data-target="#personal"><h5>Personal</h5></a></li>
@@ -53,7 +53,8 @@
             <div class="panel panel-default">
                 <div class="panel-heading navbar-inverse">
                     <h4>
-                        {{emp.fname }} {{emp.lname}}
+                       <!-- {{emp.fname }} {{emp.lname}}-->
+                       Personal Profile
                     </h4>
                 </div>
 
@@ -110,7 +111,7 @@
                                     <td><h5 class="normalfont normaltext">{{data.salary}}</h5></td>
                                     <td><h5 class="normalfont normaltext">{{data.bonus}}</h5></td>
                                     <td><h5 class="normalfont normaltext">{{data.leaves}}</h5></td>
-                                    <td><h5 class="normalfont normaltext">{{data.post}}</h5></td>
+                                    <td><h5 class="normalfont normaltext">{{data.role}}</h5></td>
                                 </tr>
 
                             </tbody>
@@ -191,4 +192,3 @@
     <div class="col-sm-3 col-sm-offset-4 panel-body">
         <button class="btn btn-info btn-block" ng-click="editDisplay()" style="font-size:0.8em">Edit</button>
     </div>
-</div>

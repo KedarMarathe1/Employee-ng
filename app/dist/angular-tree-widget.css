@@ -2,12 +2,12 @@
     ---------------- Tree style ---------------------
 */
 
-tree {
-    white-space: nowrap;
-}
+    tree {
+        white-space: nowrap;
+    }
 
-treenode {
-}
+    treenode {
+    }
 
     treenode ul {
         list-style-type: none;
@@ -16,9 +16,9 @@ treenode {
         margin-bottom: 0;
     }
 
-        treenode ul li {
-            margin-right: 5px;            
-        }
+    treenode ul li {
+        margin-right: 5px;            
+    }
 
     treenode .node-title {
     }
@@ -28,6 +28,10 @@ treenode {
     }
 
     treenode .node-name {
+        text-transform: capitalize;
+    }
+    treenode .node-name:hover {
+        background-color:#80d4ff;
     }
 
     treenode .selected {
@@ -54,24 +58,24 @@ treenode {
 }
 
 .tree-node-ico.tree-node-expanded {
-    background-image: url('img/arrow-down.png');
+    background-image: url('img/minus.png');
 }
 
 .tree-node-ico.tree-node-collapsed {
-    background-image: url('img/arrow-right.png');
+    background-image: url('img/plus.png');
 }
 
 span > .tree-node-ico {
     margin-right: 5px;
 }
 
-    span > .tree-node-ico.tree-node-image {
-        background-image: url('img/folder-open.png');
-    }
+span > .tree-node-ico.tree-node-image {
+    background-image: url('img/folder-open.png');
+}
 
-    span > .tree-node-ico.tree-node-leaf {
-        background-image: url('img/file.png');
-    }
+span > .tree-node-ico.tree-node-leaf {
+    background-image: url('../images/employee.png');
+}
 
 
 
