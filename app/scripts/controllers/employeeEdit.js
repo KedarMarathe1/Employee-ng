@@ -28,6 +28,25 @@ $scope.deletedQualifications = [];
  						$scope.certifications.push({'certification_name': user.certification_selected.certification_name, 'year':user.year,'certification_code':user.certification_selected.certification_code,'add':true})		
 			}
 		}
+
+//-------------------------Add Salary-----------------------------/////////
+
+			$scope.addSalary = function(newSalary){
+				console.log($scope.salary);
+				var duplicateFlag=false;
+ 				
+ 				if(document.getElementById("salaryYear").value && document.getElementById("salarySalary").value && document.getElementById("salaryLeaves").value && document.getElementById("salaryBonus").value && document.getElementById("salaryRole").value){
+ 						for(i=0;i<$scope.salary.length;i++)
+ 							if($scope.salary[i].year==newSalary.year)
+ 								duplicateFlag=true;
+
+ 						if(!duplicateFlag)
+ 						$scope.salary.push({'year': newSalary.year, 'salary':newSalary.salary,'leaves':newSalary.leaves,'bonus':newSalary.bonus,'role':newSalary.role,'add':true})		
+			}
+		}
+			
+		
+
 //-----------------------Select id for delete Certification-------------------//	
 		$scope.getDeleteId_Qualification = function(btn) {
 			if(this.data.add==true)
