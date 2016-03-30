@@ -9,6 +9,8 @@
 	<link rel="stylesheet" href="styles/bootstrap.min.css">
 	<link rel="stylesheet" href="styles/freelancer.css">
 	<link href="dist/angular-tree-widget.css" rel="stylesheet" />
+ 
+    <!-- Load jQuery UI Main JS  -->
 
   </head>
   <body ng-app="employeeApp" style="width:100%">
@@ -42,7 +44,7 @@
             <div class="col-sm-3">
                  <div class="panel panel-default">
                   <div class="panel-heading">Navigation
-                  <button type="button" class="btn-xs btn-success" ng-click="addEmployee()" style="float: right;border-radius: 15px;"><span class="glyphicon glyphicon-plus"></span></button></div>
+                  <button type="button" data-toggle="tooltip" title="Add New Employee" data-placement="auto right" class="btn-xs btn-success" ng-click="addEmployee()" style="float: right;border-radius: 15px;"><span class="glyphicon glyphicon-plus"></span></button></div>
                   <div class="container page panel-body"  style="width: 100%">
                         <div class="row presentation" >
 
