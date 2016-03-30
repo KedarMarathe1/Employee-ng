@@ -3,6 +3,21 @@ myApp.controller('EmployeeEdit', ['$scope','$http','$location',function ($scope,
 
 $scope.deletedCertifications = [];
 $scope.deletedQualifications = [];
+$scope.roleList = [{
+	
+		role:'Trainee',
+		code:'T'
+	},
+	{
+		role:'Analyst',
+		code:'A'
+	},{
+		role:'Junior Analyst',
+		code:'JA'
+	}
+
+
+];
 //-----------------------------To add qualification-------------------------------------//
  		$scope.addQualification = function(user){
  			var duplicateFlag=false
@@ -32,16 +47,17 @@ $scope.deletedQualifications = [];
 //-------------------------Add Salary-----------------------------/////////
 
 			$scope.addSalary = function(newSalary){
-				console.log($scope.salary);
+				console.log(newSalary.role.role);
 				var duplicateFlag=false;
  				
- 				if(document.getElementById("salaryYear").value && document.getElementById("salarySalary").value && document.getElementById("salaryLeaves").value && document.getElementById("salaryBonus").value && document.getElementById("salaryRole").value){
+ 				if(document.getElementById("salaryRole").selectedIndex >0 && document.getElementById("salaryYear").value && document.getElementById("salarySalary").value && document.getElementById("salaryLeaves").value && document.getElementById("salaryBonus").value && document.getElementById("salaryRole").value){
+ 						console.log(newSalary.role.role);
  						for(i=0;i<$scope.salary.length;i++)
  							if($scope.salary[i].year==newSalary.year)
  								duplicateFlag=true;
 
  						if(!duplicateFlag)
- 						$scope.salary.push({'year': newSalary.year, 'salary':newSalary.salary,'leaves':newSalary.leaves,'bonus':newSalary.bonus,'role':newSalary.role,'add':true})		
+ 						$scope.salary.push({'year': newSalary.year, 'salary':newSalary.salary,'leaves':newSalary.leaves,'bonus':newSalary.bonus,'role':newSalary.role.role,'add':true})		
 			}
 		}
 			
