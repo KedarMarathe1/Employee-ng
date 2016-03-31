@@ -52,6 +52,7 @@
     }
 }
 </style>
+
 <script>
 
 
@@ -74,6 +75,7 @@ $(document).ready(function() {
 
 
 </script>
+
 
 <link rel="stylesheet" href="../styles/table_responsive.css">
 <div class="container" id="controllerId" style="width:100%; padding:0px" ng-controller="EmployeeEdit">
@@ -280,8 +282,9 @@ $(document).ready(function() {
                                 </tr>
                                    <tr >
                                     <td data-title="Year">
+
                                     <input class="form-control datepicker" ng-change="changeYear()" id="salaryYear" ng-model='newSalary.year' placeholder='Year' type="text" min=0 >
-                            
+
                                     </td>
                                     <td data-title="Salary">
                                          <input class="form-control" id="salarySalary" ng-model='newSalary.salary' placeholder='Salary' type="number" min=0 >

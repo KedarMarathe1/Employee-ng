@@ -50,7 +50,8 @@ angular
          templateUrl: 'EditDisplay.html'
       })
     .when('/addEmployee', {
-         templateUrl: 'addEmployee.html'
+         templateUrl: 'addEmployee.html',
+         controller:'EmployeeAdd'
       })
      
       .otherwise({
