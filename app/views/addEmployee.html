@@ -43,6 +43,10 @@
 
 		
 </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.min.css" />
+<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+
 
 <!--
 <div>
@@ -78,32 +82,37 @@
 			
 				<div class="col-md-offset-2 panel-body">
 				 
-					
-					<div>
+						<div>
 						<h5 class="normaltext">
 							<div class="col-md-4" style="padding-top: 1.5%">
 								<span><strong>Mobile Number</strong></span>	
 							</div>
 						</h5>
 
-							<div class="col-md-5 top-space">
-								<input class="form-control" ng-model='user.mobile_no' placeholder="Mobile Number" type="number" required>
-							</div>	
+						<div class="col-md-5 top-space" ng-class="{'has-error':EditEmployee.mobile_no.$invalid && !EditEmployee. mobile_no.$pristine,'has-success':EditEmployee.mobile_no.$valid && !EditEmployee.mobile_no.$pristine}">
+							<input class="form-control" name="mobile_no" ng-model='user.mobile_no' placeholder="Mobile Number" type="number" required minlength="10" maxlength="10">
+						</div>	
+						<div class="col-md-3 has-error" style="padding-top: 2%">
+							<i ng-show="EditEmployee.mobile_no.$invalid && !EditEmployee.mobile_no.$pristine" class="help-block">Please Enter Mobile Number</i>	
+						</div>
 						
 					</div>
 
 					<div >
 						<h5 class="normaltext">
-							<div class="col-md-4" style="padding-top: 1.5%">
+							<div class="col-md-4" style="padding-top:2%">
 								<span><strong>Email</strong></span>	
 							</div>
 						</h5>
 
-							<div class="col-md-5 top-space" >
-								<input class="form-control" ng-model='user.email_id' placeholder="Email" type="text" required>
-							</div>	
-						
+						<div class="col-md-5 top-space" ng-class="{'has-error':EditEmployee.email_id.$invalid && !EditEmployee. email_id.$pristine, 'has-success':EditEmployee.email_id.$valid && !EditEmployee.email_id.$pristine}" >
+							<input class="form-control" name="email_id" ng-model='user.email_id' placeholder="Email" type="email" required>   
+						</div>
+						<div class="col-md-3 has-error" style="padding-top: 2%">
+							<i ng-show="EditEmployee.email_id.$invalid && !EditEmployee.email_id.$pristine" class="help-block">Please Enter a valid Email-Id</i>	
+						</div>
 					</div>
+
 
 						<div>
 							<h5 class="normaltext">
@@ -124,13 +133,18 @@
 
 					<div>
 						<h5 class="normaltext">
-							<div class="col-md-4" style="padding-top: 1.5%">
+							<div class="col-md-4" style="padding-top: 2%">
 								<span><strong>DOB</strong></span>	
 							</div>
 						</h5>
 
-							<div class="col-md-5 top-space">
-								<input class="form-control" ng-model='user.dob' placeholder='Birth Date' type="text" required>
+							<div class="col-md-5 top-space" ng-class="{'has-error':EditEmployee.dob.$invalid && EditEmployee.dob.$touched, 'has-success':EditEmployee.dob.$valid && EditEmployee.dob.$touched}">
+								<input class="form-control" name="dob" ng-model='user.dob' placeholder='Birth Date' type="date" required>
+							</div>
+							<div class="col-md-3 top-space has-error">
+							<i  class="help-block" ng-show="EditEmployee.dob.$invalid && EditEmployee.dob.$touched" >
+								Please Enter Datae of Birth
+							</i>
 							</div>	
 					</div>
 
@@ -203,7 +217,7 @@
 							</div>
 						</h5>
 							<div class="col-md-5">
-								<input class="form-control" ng-model='user.doj' placeholder='DOJ' type="text" required>
+								<input class="form-control" ng-model='user.doj' id="datepicker" placeholder='DOJ' type="text" required>
 							</div>	
 					</div>
 
