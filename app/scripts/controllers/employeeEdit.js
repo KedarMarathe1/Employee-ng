@@ -4,15 +4,10 @@ myApp.controller('EmployeeEdit', ['$scope','$http','$location',function ($scope,
 $scope.deletedCertifications = [];
 $scope.deletedQualifications = [];
 $scope.deletedSalary = [];
-
+$scope.newSalary = [];
 $http.get("http://localhost:1337/employee/getSalary").success(function(result){
 	$scope.roleList=result;
 })
-
-
-
-
-
 //-----------------------------To add qualification-------------------------------------//
  		$scope.addQualification = function(user){
  			var duplicateFlag=false
@@ -44,7 +39,7 @@ $http.get("http://localhost:1337/employee/getSalary").success(function(result){
 			$scope.addSalary = function(newSalary){
 				
 				var duplicateFlag=false;
- 				//console.log(newSalary)
+ 				console.log(newSalary)
  				if(document.getElementById("newSalaryRole").selectedIndex >0 && document.getElementById("salaryYear").value && document.getElementById("salarySalary").value && document.getElementById("salaryLeaves").value && document.getElementById("salaryBonus").value && document.getElementById("newSalaryRole").value){
  					console.log("newSalary");
  						for(i=0;i<$scope.salary.length;i++)
@@ -71,14 +66,20 @@ $http.get("http://localhost:1337/employee/getSalary").success(function(result){
 					return -1;
 				return 0;
 			});
-			}
-			
+			}	
 //----------------------------------------------------------------------------//
 		$scope.changeRole = function(index,role) {
 			console.log("index: "+index +" "+ "role: "+ role)
 			$scope.salary[index].role = role;
 			console.log($scope.salary)
 		}		
+
+		$scope.changeYear = function(value,newSalary)
+		{
+			console.log("change year");
+			console.log(value)
+			$scope.newSalary.year = value;
+		}
 
 //-----------------------Select id for delete Certification-------------------//	
 		$scope.getDeleteId_Qualification = function(btn) {
@@ -110,7 +111,6 @@ $http.get("http://localhost:1337/employee/getSalary").success(function(result){
 //--------------------Delete certification from modal--------------------//
 		$scope.deleteCertification = function() {
 			for (i = 0; i < $scope.certifications.length; i++) {
-					console.log($scope.certifications[i].sr_no)
 			     if ($scope.certifications[i].sr_no == $scope.deleteId || $scope.certifications[i].sr_no==false) {
 			         if ($scope.certifications[i].add!=true)
 			             $scope.deletedCertifications.push($scope.certifications[i].sr_no);
@@ -134,12 +134,12 @@ $http.get("http://localhost:1337/employee/getSalary").success(function(result){
 			$scope.deleteSalary = function(){
 				for(i=0;i<$scope.salary.length;i++)
 				{
-					if($scope.salary[i].sr_no == $scope.deleteId || $scope.salary[i].sr_no==false){
+					console.log($scope.salary[i])
+					if(($scope.salary[i].sr_no == $scope.deleteId && $scope.deleteId!=undefined) || $scope.salary[i].sr_no==false){
 						if($scope.salary[i].add!=true)
 							$scope.deletedSalary.push($scope.salary[i].sr_no)
 			                $scope.salary.splice(i, 1);
 					}
-					console.log($scope.deletedSalary)
 				}
 			}
 //---------------To update the changes------------------------------//

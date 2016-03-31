@@ -38,11 +38,50 @@
     .top-space {
         margin-top: 1.5%;
     }
+.ui-datepicker-calendar {
+       display: none;
+    }
+    .ui-datepicker-month {
+       display: none;
+    }
+    .ui-datepicker-prev{
+       display: none;
+    }
+    .ui-datepicker-next{
+       display: none;
+    }
+}
 </style>
+<<<<<<< HEAD
 
 
+=======
+<script>
+
+
+$(document).ready(function() {
+   $('.datepicker').datepicker({
+        changeMonth: false,
+        changeYear: true,
+        showButtonPanel: true,
+        dateFormat: 'MM yy'
+    }).focus(function() {
+        var thisCalendar = $(this);
+        $('.ui-datepicker-calendar').detach();
+        $('.ui-datepicker-close').click(function() {
+        var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
+        thisCalendar.val(year);
+             angular.element(document.getElementById('controllerId')).scope().changeYear(year);
+        });
+    });
+});
+
+
+</script>
+
+>>>>>>> b45a52d4078c49880e902a71de42aa7ebba252fc
 <link rel="stylesheet" href="../styles/table_responsive.css">
-<div class="container" style="width:100%; padding:0px" ng-controller="EmployeeEdit">
+<div class="container" id="controllerId" style="width:100%; padding:0px" ng-controller="EmployeeEdit">
     <ul class="nav nav-tabs">
         <li class="active"><a data-toggle="tab" data-target="#personal"><h5>Personal</h5></a></li>
         <li><a data-toggle="tab" data-target="#company"><h5>Company</h5></a></li>
@@ -246,7 +285,12 @@
                                 </tr>
                                    <tr >
                                     <td data-title="Year">
+<<<<<<< HEAD
                                     <input class="form-control" id="salaryYear" class="monthYearPicker" ng-model='newSalary.year' placeholder='Year' type="number" min=0 >
+=======
+                                    <input class="form-control datepicker" ng-change="changeYear()" id="salaryYear" ng-model='newSalary.year' placeholder='Year' type="text" min=0 >
+                            
+>>>>>>> b45a52d4078c49880e902a71de42aa7ebba252fc
                                     </td>
                                     <td data-title="Salary">
                                          <input class="form-control" id="salarySalary" ng-model='newSalary.salary' placeholder='Salary' type="number" min=0 >
