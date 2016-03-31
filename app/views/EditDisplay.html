@@ -233,12 +233,12 @@
                                         <input class="form-control" ng-model='salary[$index].leaves' placeholder='PF_no' type="text" required>
                                     </td>
                                     <td data-title="Role" class="numeric">
-                                        <select id="salaryRole" class="form-control" ng-model="newSalary.role" ng-options="role.role for role in roleList track by role.code">
+                                        <select id="salaryRole" ng-change="changeRole($index,salary[$index].role.role)" class="form-control" ng-model="salary[$index].role" ng-options="role.role for role in roleList track by role.code">
                                         <option style="display:none" value="">{{salary[$index].role}}</option>
-                                    </select>
+                                        </select>
                                     </td>
                                      <td data-title="" class="numeric">
-                                        <button class="form-control btn-danger" type="button" id="mybtn" style="margin:1%" ng-click="addRow_salary()"> <span class="glyphicon glyphicon-trash"></span></button>
+                                        <button class="form-control btn-danger" type="button" id="mybtn" style="margin:1%" ng-click="getDeleteId_Salary()"> <span class="glyphicon glyphicon-trash"></span></button>
                                     </td>
                                     
                                 </tr>
@@ -257,10 +257,14 @@
                                     </td>
                                     <td data-title="Role" class="numeric">
                                     
-                                         <div class="form-group" style="margin-top: 12px">
-                                    <select id="salaryRole" class="form-control" ng-model="newSalary.role" ng-options="role.role for role in roleList track by role.code">
-                                        <option style="display:none" value="">select a role</option>
+                                    <div class="form-group" style="margin-top: 12px">
+                                    <select id="newSalaryRole" class="form-control" ng-model="newSalary.selected_role" ng-options="role.role for role in roleList track by role.code">
+                                    <option style="display:none" value="">Select Role</option>
                                     </select>
+                                      
+                               
+
+
                                 </div>
                                     </td>
                                      <td data-title="" class="numeric">
@@ -326,6 +330,7 @@
                                     <select id="select_qualificaion" class="form-control" ng-model="user.qualification_selected" ng-options="qualification.name for qualification in qualification_list track by qualification.code">
                                         <option style="display:none" value="">select a Qualification</option>
                                     </select>
+
                                 </div>
                                     </td>
                                     <td data-title="%" class="numeric">
