@@ -39,6 +39,8 @@
         margin-top: 1.5%;
     }
 </style>
+
+
 <link rel="stylesheet" href="../styles/table_responsive.css">
 <div class="container" style="width:100%; padding:0px" ng-controller="EmployeeEdit">
     <ul class="nav nav-tabs">
@@ -233,34 +235,38 @@
                                         <input class="form-control" ng-model='salary[$index].leaves' placeholder='PF_no' type="text" required>
                                     </td>
                                     <td data-title="Role" class="numeric">
-                                        <select id="salaryRole" class="form-control" ng-model="salary[$index].role" ng-options="role.role for role  in roleList track by role.code">
+                                        <select id="salaryRole" ng-change="changeRole($index,salary[$index].role.role)" class="form-control" ng-model="salary[$index].role" ng-options="role.role for role in roleList track by role.code">
                                         <option style="display:none" value="">{{salary[$index].role}}</option>
-                                    </select>
+                                        </select>
                                     </td>
                                      <td data-title="" class="numeric">
-                                        <button class="form-control btn-danger" type="button" id="mybtn" style="margin:1%" ng-click="addRow_salary()"> <span class="glyphicon glyphicon-trash"></span></button>
+                                        <button class="form-control btn-danger" type="button" id="mybtn" style="margin:1%" ng-click="getDeleteId_Salary()"> <span class="glyphicon glyphicon-trash"></span></button>
                                     </td>
                                     
                                 </tr>
                                    <tr >
                                     <td data-title="Year">
-                                    <input class="form-control" id="salaryYear" ng-model='newSalary.year' placeholder='Year' type="text">
+                                    <input class="form-control" id="salaryYear" class="monthYearPicker" ng-model='newSalary.year' placeholder='Year' type="number" min=0 >
                                     </td>
                                     <td data-title="Salary">
-                                         <input class="form-control" id="salarySalary" ng-model='newSalary.salary' placeholder='Salary' type="text" >
+                                         <input class="form-control" id="salarySalary" ng-model='newSalary.salary' placeholder='Salary' type="number" min=0 >
                                     </td>
                                     <td data-title="Bonus" class="numeric">
-                                        <input class="form-control" id="salaryBonus" ng-model='newSalary.bonus' placeholder='Bonus' type="text" >
+                                        <input class="form-control" id="salaryBonus" ng-model='newSalary.bonus' placeholder='Bonus' type="number" min=0  >
                                     </td>
                                     <td data-title="Leaves" class="numeric">
-                                        <input class="form-control" id="salaryLeaves" ng-model='newSalary.leaves' placeholder='Leaves' type="text" >
+                                        <input class="form-control" id="salaryLeaves" ng-model='newSalary.leaves' placeholder='Leaves' type="number" min=0 >
                                     </td>
                                     <td data-title="Role" class="numeric">
                                     
-                                         <div class="form-group" style="margin-top: 12px">
-                                    <select id="salaryRole" class="form-control" ng-model="newSalary.role" ng-options="role.role for role in roleList track by role.code">
-                                        <option style="display:none" value="">select a role</option>
+                                    <div class="form-group" style="margin-top: 12px">
+                                    <select id="newSalaryRole" class="form-control" ng-model="newSalary.selected_role" ng-options="role.role for role in roleList track by role.code">
+                                    <option style="display:none" value="">Select Role</option>
                                     </select>
+                                      
+                               
+
+
                                 </div>
                                     </td>
                                      <td data-title="" class="numeric">
@@ -326,6 +332,7 @@
                                     <select id="select_qualificaion" class="form-control" ng-model="user.qualification_selected" ng-options="qualification.name for qualification in qualification_list track by qualification.code">
                                         <option style="display:none" value="">select a Qualification</option>
                                     </select>
+
                                 </div>
                                     </td>
                                     <td data-title="%" class="numeric">

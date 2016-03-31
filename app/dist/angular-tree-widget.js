@@ -78,7 +78,8 @@
                         }],
                         ['Delete', function ($itemScope) {
                             $scope.nodes.splice($itemScope.$index, 1);
-                            $rootScope.selected = $itemScope.node.nodeId;
+                            $rootScope.selected = $itemScope.node.name;
+                            console.log($rootScope.selected);
                             //code to delete the node
                         }]
                     ];

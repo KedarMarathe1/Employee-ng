@@ -163,7 +163,7 @@ $http.get("http://localhost:1337/employee/getSalary").success(function(result){
 				}	
 				for(i=0;i<$scope.deletedSalary.length;i++)
 				{
-					$http.delete("http://localhost:1337/employee/deleteQualification?id="+$scope.deletedSalary[i]).success(function(result){
+					$http.delete("http://localhost:1337/employee/deleteSalary?id="+$scope.deletedSalary[i]).success(function(result){
 						console.log(result);
 					})
 				}	

@@ -46,6 +46,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.min.css" />
 <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="../styles/table_responsive.css">
 
 
 <!--
@@ -64,9 +65,9 @@
 		<li><a data-toggle="tab" data-target="#qualifications"><h5>Qualifications & Certifications</h5></a></li>
 	  </ul>
 	<form role="form" name="EditEmployee">
-	<div class="tab-content panel-body">
+	<div class="tab-content panel-body" style="padding-left: 0px;padding-right: 0px">
 		<div id="personal" class="tab-pane fade in active" >
-			<div class="panel panel-primary">
+			<div class="panel panel-default">
 			
 							<div class="panel-heading navbar-inverse panel-body " >
 								<h4  class="col-md-offset-2">
@@ -201,7 +202,7 @@
 		</div>
   
 		<div id="company" class="tab-pane fade">
-		 <div class="panel panel-primary" style="width:100%">
+		 <div class="panel panel-default" style="width:100%">
 								<div class="panel-heading navbar-inverse">
 									<h4>
 										Company Profile
@@ -233,68 +234,78 @@
 					</div>
 
 								
-			  <div class=" panel-body"  style="clear:both;margin-top: 3%;">
+			  <div style="clear:both;margin-top: 3%;">
 			 
-			  <div class="panel panel-primary panel-body" style="overflow: auto;">
-				  <table class="table" style="color:black">
-				  <tr> 
-				  	<td>
-				  		<h5 style="color:black;width: 20vh">
-				  		<input class="form-control" ng-model="user.salary_year" id='salary_year' placeholder='Year' type="text">
-				  		</h5>
-				  	</td>
+					 <div id="no-more-tables">
+                         <table class="col-md-12 table-striped table-condensed cf" style="padding: 0%">
+                            <thead class="cf">
+                                <tr>
+                                    <th class="numeric">Year</th>
+                                    <th class="numeric">Salary</th>
+                                    <th class="numeric">Bonus</th>
+                                    <th class="numeric">Leaves</th>
+                                    <th class="numeric">Role</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="data in salary">
+                                    <td data-title="Year">
+                                    {{salary[$index].year}}
+                                    </td>
+                                    <td data-title="Salary">
+                                         <input class="form-control" ng-model='salary[$index].salary' placeholder='PF_no' type="text" required>
+                                    </td>
+                                    <td data-title="Bonus" class="numeric">
+                                        <input class="form-control" ng-model='salary[$index].bonus' placeholder='PF_no' type="text" required>
+                                    </td>
+                                    <td data-title="Leaves" class="numeric">
+                                        <input class="form-control" ng-model='salary[$index].leaves' placeholder='PF_no' type="text" required>
+                                    </td>
+                                    <td data-title="Role" class="numeric">
+                                        <select id="salaryRole" ng-change="changeRole($index,salary[$index].role.role)" class="form-control" ng-model="salary[$index].role" ng-options="role.role for role in roleList track by role.code">
+                                        <option style="display:none" value="">{{salary[$index].role}}</option>
+                                        </select>
+                                    </td>
+                                     <td data-title="" class="numeric">
+                                        <button class="form-control btn-danger" type="button" id="mybtn" style="margin:1%" ng-click="getDeleteId_Salary()"> <span class="glyphicon glyphicon-trash"></span></button>
+                                    </td>
+                                    
+                                </tr>
+                                   <tr >
+                                    <td data-title="Year">
+                                    <input class="form-control" id="salaryYear" class="monthYearPicker" ng-model='newSalary.year' placeholder='Year' type="number" min=0 >
+                                    </td>
+                                    <td data-title="Salary">
+                                         <input class="form-control" id="salarySalary" ng-model='newSalary.salary' placeholder='Salary' type="number" min=0 >
+                                    </td>
+                                    <td data-title="Bonus" class="numeric">
+                                        <input class="form-control" id="salaryBonus" ng-model='newSalary.bonus' placeholder='Bonus' type="number" min=0  >
+                                    </td>
+                                    <td data-title="Leaves" class="numeric">
+                                        <input class="form-control" id="salaryLeaves" ng-model='newSalary.leaves' placeholder='Leaves' type="number" min=0 >
+                                    </td>
+                                    <td data-title="Role" class="numeric">
+                                    
+                                    <div class="form-group" style="margin-top: 12px">
+                                    <select id="newSalaryRole" class="form-control" ng-model="newSalary.selected_role" ng-options="role.role for role in roleList track by role.code">
+                                    <option style="display:none" value="">Select Role</option>
+                                    </select>
+                                      
+                               
 
-					<td>
-						<h5 style="color:black;width: 20vh">
-							<input class="form-control" ng-model="user.salary" id='salary' placeholder='Salary' type="text">
-						</h5>
-					</td>
-					<td>
-						<h5 style="color:black;width: 20vh">
-						<input class="form-control" ng-model="user.bonus" id='bonus' placeholder='Bonus' type="text">
-						</h5>
-					</td>
-					<td>
-						<h5 style="color:black;width: 20vh">
-							<input class="form-control" ng-model="user.leaves" id='leaves' placeholder='Leaves' type="text">
-						</h5>
-					</td>
-					<td>
-						<h5 style="color:black;width: 20vh">
-							<input class="form-control" ng-model="user.post" id='post' placeholder='Post' type="text">
-						</h5>
-					</td>
-				  </tr>
-				  </table>
-				   <button class="form-control btn-success" type="button" id="mybtn" ng-click="addRow_salary(user)">ADD</button>
-				</div>
-				
-				<div style="max-height:50vh;overflow: auto;">
-				<table class="table" style="color:black;">
-						<thead >
-						  <tr class="active">
-							<th><h5 style="color:black;width: 15vh">Year</h5></th>
-							<th><h5 style="color:black;width: 15vh">Salary</h5></th>
-							<th><h5 style="color:black;width: 15vh">Bonus</h5></th>
-							<th><h5 style="color:black;width: 15vh">Leaves</h5></th>
-							<th><h5 style="color:black;width: 20vh">Post</h5></th>
-						
-							
-							
-						  </tr>
-						</thead>
-						<tbody>
-						  <tr ng-repeat="data in salary_add">
-							<td><h5  class="normalfont normaltext">{{data.year}}</h5></td>
-							<td><h5  class="normalfont normaltext">{{data.salary}}</h5></td>
-							<td><h5  class="normalfont normaltext">{{data.bonus}}</h5></td>
-							<td><h5  class="normalfont normaltext">{{data.leaves}}</h5></td>
-							<td><h5  class="normalfont normaltext">{{data.post}}</h5></td>
-						  </tr>
-						 
-						</tbody>
-				 </table>
-				 </div>
+
+                                </div>
+                                    </td>
+                                     <td data-title="" class="numeric">
+                                        <button class="form-control btn-success" type="button" id="mybtn" style="margin:1%" ng-click="addSalary(newSalary)"> <span class="glyphicon glyphicon-plus"></span></button>
+                                    </td>
+                                    
+                                </tr>
+                               
+                            </tbody>
+                        </table>
+                        </div>
+
 				</div>
 
 				<br>
@@ -305,7 +316,7 @@
 		
     <div id="qualifications" class="tab-pane fade">
 			 <div class="col-md-5 ">
-				 <div class="panel panel-primary" style="width:100%">
+				 <div class="panel panel-default" style="width:100%">
 							
 								<div class="panel-heading navbar-inverse">
 									<h4>
@@ -313,51 +324,59 @@
 									</h4>
 								</div>
 
-						 <div class="panel-body">
+						  <div id="no-more-tables">
+                         <table class="col-md-12 table-striped table-condensed cf" style="padding: 1%">
+                            <thead class="cf">
+                                <tr>
+                                    <th class="numeric">Degree</th>
+                                    <th class="numeric">Percentage</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="data in qualifications">
+                                    <td data-title="Name">
+                                   {{data.name}}
+                                    </td>
+                                   
+                                    <td data-title="%" class="numeric">
+                                        {{data.percentage}}%
+                                    </td>
+                                    <td data-title="" class="numeric" ng-init="buttonClicked='deleteQualification';">
+                                        <button class="form-control btn-danger" type="button" data-toggle="modal" data-target="#DeleteCertificationModal" ng-click="getDeleteId_Qualification(buttonClicked)"> <span class="glyphicon glyphicon-trash"></span></button>
+                                    </td>
 
-						
-						<div>
+                                    
+                                </tr>
+                                <tr>
+                                    <td data-title="Degree" class="numeric">
+                                        <div class="form-group" style="margin-top: 12px">
+                                    <select id="select_qualificaion" class="form-control" ng-model="user.qualification_selected" ng-options="qualification.name for qualification in qualification_list track by qualification.code">
+                                        <option style="display:none" value="">select a Qualification</option>
+                                    </select>
 
-						
-								<div class="form-group">
-								  <select id="select_qualificaion" class="form-control" ng-model="user.qualification_selected" ng-options="qualification.name for qualification in qualification_list track by qualification.code">
-								  <option style="display:none" value="">select a Qualification</option>
-								  </select>
-								</div>
-						
-           			
+                                </div>
+                                    </td>
+                                    <td data-title="%" class="numeric">
+                                        <input class="form-control" style="margin:1%" id="percentage" ng-model="user.percentage" placeholder='Percentage' type="number">
 
-						  <!--<input class="form-control" style="margin:1%" id="qualification" ng-model="user.qualification" placeholder='Qualification' type="text">-->
-						  <input class="form-control" style="margin:1%" id="percentage" ng-model="user.percentage" placeholder='Percentage' type="number" >
-						  <button class="form-control btn-success" type="button" id="mybtn" style="margin:1%;margin-bottom:5%" ng-click="addQualification(user)">ADD</button>
-						</div>
+                                    </td>
+                                    <td data-title="" class="numeric">
+                                        <button class="form-control btn-success" type="button" id="mybtn" style="margin:1%;margin-bottom:5%" ng-click="addQualification(user)"> <span class="glyphicon glyphicon-plus"></span></button>
 
-							<div style="overflow: auto; max-height:50vh;">
-							<table class="table" style="color:black;">
-									<thead >
-									  <tr class="active">
-										<th class="col-md-8"><h5 style="color:black;width: 20vh">Degree</h5></th>
-										<th><h5 style="color:black;width: 10vh">Percentage</h5></th>
-										<th></th>
-									  </tr>
-									</thead>
-									<tbody>
-									  <tr ng-repeat="data in qualifications_add">
-										<td><h5  class="normalfont normaltext">{{data.name}}</h5></td>
-										<td><h5  class="normalfont normaltext">{{data.percentage}}%</h5></td>
-										
-									  </tr>
-									
-									</tbody>
-							 </table>
-							 </div>
-						</div>
+                                    </td>
+
+
+                                </tr>
+                               
+                            </tbody>
+                        </table>
+                        </div>
 				</div>
 			 
 			 </div>
 			 <div class="col-md-7 ">
 				
-				<div class="panel panel-primary" style="width:100%">
+				<div class="panel panel-default" style="width:100%">
 							
 							<div class="panel-heading navbar-inverse">
 								<h4>
@@ -368,41 +387,50 @@
 						
 
 						<div class="panel-body" >
+								<div id="no-more-tables">
+                         <table class="col-md-12 table-striped table-condensed cf" style="padding: 1%">
+                            <thead class="cf">
+                                <tr>
+                                    <th class="numeric">Year</th>
+                                    <th class="numeric">Certification</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="data in certifications">
+                                    <td data-title="Year">
+                                   {{data.year}}
+                                    </td>
+                                   
+                                    <td data-title="Name" class="numeric">
+                                        {{data.certification_name}}%
+                                    </td>
+                                    <td data-title="" class="numeric" ng-init="buttonClicked='deleteCertification';">
+                                        <button class="form-control btn-danger" type="button" data-toggle="modal" data-target="#DeleteCertificationModal" ng-click="getDeleteId_Certification(buttonClicked)"> <span class="glyphicon glyphicon-trash"></span></button>
+                                    </td>
 
-						<div>
-						  <div class="form-group">
-								  <select id="select_certification" class="form-control" ng-model="user.certification_selected" ng-options="certification.certification_name for certification in certification_list track by certification.certification_code">
-								  <option style="display:none" value="">select a Certification</option>
-								  </select>
-								</div>
-						  <input class="form-control" style="margin:1%" id="year" ng-model="user.year" placeholder='Year' type="text">
-						  
-						  <button class="form-control btn-success" type="button" id="mybtn" style="margin:1%;margin-bottom:5%" ng-click="addCertification(user)">ADD</button>
-						</div>
+                                    
+                                </tr>
+                                <tr>
+                                    <td data-title="Name" class="numeric" >
+                                         <div class="form-group" style="margin-top: 12px">
+                                    <select id="select_certification" class="form-control" ng-model="user.certification_selected" ng-options="certification.certification_name for certification in certification_list track by certification.certification_code">
+                                        <option style="display:none" value="">select a Certification</option>
+                                    </select>
+                                </div>
+                                    </td>
+                                    <td data-title="Year" class="numeric" >
+                                         <input class="form-control" style="margin:1%" id="year" ng-model="user.year" placeholder='Year' type="text">
+                                    </td>
+                                    <td data-title="" class="numeric" >
+                                         <button class="form-control btn-success" type="button" id="mybtn" style="margin:1%;margin-bottom:5%" ng-click="addCertification(user)"> <span class="glyphicon glyphicon-plus"></span></button>
+                                    </td>
 
-
-						<div style="overflow: auto;max-height:50vh;" >
-							<table class="table " style="color:black;">
-									<thead >
-									  <tr class="active">
-										<th  class="col-md-3"><h5 style="width:15vh">Year</h5></th>
-										<th><h5 style="width:20vh">Certification</h5></th>
-										<th></th>
-										
-										
-									  </tr>
-									</thead>
-									<tbody>
-									  <tr ng-repeat="data in certifications_add">
-
-										<td><h5  class="normalfont normaltext">{{data.year}}</h5></td>
-										<td><h5  class="normalfont normaltext">{{data.certification_name}}</h5></td>
-										
-									  </tr>
-									 
-									</tbody>
-							 </table>
-							 </div>
+                                </tr>
+                               
+                            </tbody>
+                        </table>
+                        </div>
+						
 						</div>
 					
 			 
@@ -442,7 +470,7 @@
     
 	</div>
 			<div class="col-sm-3 col-sm-offset-4 panel-body">
-				 <button class="btn btn-success btn-block" style="font-size:0.8em" ng-disabled="EditEmployee.$invalid" ng-click="myfunc()">Save</button>
+				 <button class="btn-lg btn-success btn-block" style="font-size:0.8em" ng-disabled="EditEmployee.$invalid" ng-click="myfunc()" >Add</button>
 			</div>
 		</form>
 </div>
