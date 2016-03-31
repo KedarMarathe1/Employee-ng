@@ -25,31 +25,32 @@ angular
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/default.html',
+        templateUrl: 'default.html',
        // controller: 'MainCtrl',
         //controllerAs: 'main'
       })
+    
       .when('/about', {
-        templateUrl: 'views/about.html',
+        templateUrl: 'about.html',
       //  controller: 'AboutCtrl',
        // controllerAs: 'about'
       })
       .when('/emp', {
-        templateUrl: 'views/EmployeeDisplay.html'
+        templateUrl: 'EmployeeDisplay.html'
       })
 
      .when('/dpt', {
-         templateUrl: 'views/DepartmentDisplay.html'
+         templateUrl: 'DepartmentDisplay.html'
       })
 
      .when('/root', {
-         templateUrl: 'views/CompanyDisplay.html'
+         templateUrl: 'CompanyDisplay.html'
       })
      .when('/edit', {
-         templateUrl: 'views/EditDisplay.html'
+         templateUrl: 'EditDisplay.html'
       })
     .when('/addEmployee', {
-         templateUrl: 'views/addEmployee.html'
+         templateUrl: 'addEmployee.html'
       })
      
       .otherwise({

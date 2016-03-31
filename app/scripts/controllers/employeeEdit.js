@@ -20,7 +20,6 @@ $http.get("http://localhost:1337/employee/getSalary").success(function(result){
  					$scope.qualifications.push({'name': user.qualification_selected.name, 'percentage':user.percentage,'qualification_code': user.qualification_selected.code,'add':true});
  				}
 		}
-											
 //------------------------- Add Certification------------------------------------//				
 		$scope.addCertification = function(user){
 				var duplicateFlag=false;
@@ -33,11 +32,8 @@ $http.get("http://localhost:1337/employee/getSalary").success(function(result){
  						$scope.certifications.push({'certification_name': user.certification_selected.certification_name, 'year':user.year,'certification_code':user.certification_selected.certification_code,'add':true})		
 			}
 		}
-
 //-------------------------Add Salary-----------------------------/////////
-
-			$scope.addSalary = function(newSalary){
-				
+		$scope.addSalary = function(newSalary){
 				var duplicateFlag=false;
  				console.log(newSalary)
  				if(document.getElementById("newSalaryRole").selectedIndex >0 && document.getElementById("salaryYear").value && document.getElementById("salarySalary").value && document.getElementById("salaryLeaves").value && document.getElementById("salaryBonus").value && document.getElementById("newSalaryRole").value){
