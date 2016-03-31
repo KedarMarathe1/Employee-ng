@@ -233,7 +233,7 @@
                                         <input class="form-control" ng-model='salary[$index].leaves' placeholder='PF_no' type="text" required>
                                     </td>
                                     <td data-title="Role" class="numeric">
-                                        <select id="salaryRole" class="form-control" ng-model="newSalary.role" ng-options="role.role for role in roleList track by role.code">
+                                        <select id="salaryRole" class="form-control" ng-model="salary[$index].role" ng-options="role.role for role in roleList track by role.code">
                                         <option style="display:none" value="">{{salary[$index].role}}</option>
                                     </select>
                                     </td>

@@ -29,7 +29,7 @@
 		}
 			
 </style>
-
+<link rel="stylesheet" href="../styles/table_responsive.css">
 <div class="panel-body" >
 	<div class="panel panel-default">
 	<div class="panel-body" >
@@ -39,25 +39,39 @@
 				<div class="panel-body"><h5 class="normalfont normaltext" style="color:black;">{{dpt.description}}<h5></div>
 			</div>
 		
-		<div class="table-responsive" style="max-height:45vh">
-			<table class="table table-hover" style="color:black;">
-					<thead >
-					  <tr class="active">
-						<th><h5>First Name<h5></th>
-						<th><h5 >Last Name<h5></th>
-						<th><h5 >Email Id<h5></th>
-					  </tr>
-					</thead>
-					<tbody ng-repeat="dpt in department">
-					  <tr ng-repeat="emp in dpt.employee">
-						<td><h5 class="normalfont normaltext">{{emp.fname | capitalize}}</h5></td>
-						<td><h5  class="normalfont normaltext">{{emp.lname | capitalize}}</h5></td>
-						<td><h5 class="normalfont normaltext">{{emp.email_id}}</h5></td>
-					  </tr>
-					 
-					</tbody>
-			 </table>
-		</div>
+		
+
+
+
+                        <div id="no-more-tables" style="max-height:45vh">
+                         <table class="col-md-12 table-striped table-condensed cf" style="padding: 1%">
+                            <thead class="cf">
+                                <tr>
+                                    <th class="numeric">First Name</th>
+                                    <th class="numeric">Last Name</th>
+                                    <th class="numeric">Email Id</th>
+                                </tr>
+                            </thead>
+                            <tbody ng-repeat="dpt in department">
+                                <tr ng-repeat="emp in dpt.employee">
+                                    <td data-title="Name">
+                                   {{emp.fname | capitalize}}
+                                    </td>
+                                   
+                                    <td data-title="%" class="numeric">
+                                        {{emp.lname | capitalize}}
+                                    </td>
+                                    <td data-title="" class="numeric">
+                                        {{emp.email_id}}
+                                    </td>
+
+                                    
+                                </tr>
+                               
+                               
+                            </tbody>
+                        </table>
+                        </div>
 	</div>
 	</div>
 </div>

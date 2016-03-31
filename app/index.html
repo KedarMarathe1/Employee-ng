@@ -9,7 +9,23 @@
 	<link rel="stylesheet" href="styles/bootstrap.min.css">
 	<link rel="stylesheet" href="styles/freelancer.css">
 	<link href="dist/angular-tree-widget.css" rel="stylesheet" />
+<style type="text/css">
+  #footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 50px;
+  background-color: lightgrey;
+}
 
+.footer-block { margin: 10px 0; }
+
+#footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+</style>
   </head>
   <body ng-app="employeeApp" style="width:100%">
     <!--[if lte IE 8]>
@@ -60,8 +76,12 @@
             </div>
         
       </div>
-
-
+    
+<div id="footer">
+      <div class="container ">
+        <p class="footer-block " style="margin-left: 50%; color: grey">&#169;IAZI<small> 2016</small></p>  
+      </div>
+    </div>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
        !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
